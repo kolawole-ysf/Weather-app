@@ -77,5 +77,9 @@ function weatherIcon(icon){
         let fIcon=`<i class="fa-solid fa-sun"></i>`;
         return `${fIcon}`
     }
+    if(icon==='Sun'){
+        let fIcon=`<i class="fa-solid fa-sun"></i>`;
+        return `${fIcon}`
+    }
     
 }
