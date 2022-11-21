@@ -28,7 +28,7 @@ body{
 .city-input, .info{
     width: 400px;
     padding: 20px;
-    background-color: rgba(48, 146, 202, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
     margin-bottom: 40px;
     border-radius: 0 12px 0 12px;
     
