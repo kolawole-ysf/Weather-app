@@ -12,7 +12,7 @@ const inputvalue=document.querySelector('.city');
 const date=document.querySelector('.date');
 const low=document.querySelector('.low-temp');
 const high=document.querySelector('.high-temp');
-const icons=document.querySelector('.icon');
+const icons=document.querySelector('.weather-icon');
 
 btn.addEventListener('click',getInputValue);
 
@@ -32,10 +32,10 @@ function displayWeather(response){
     cityName.innerHTML=`${response.name}, ${response.sys.country}`;
     humidity.innerText=`${response.weather[0].description}`;
     temp.innerHTML=`${Math.round(response.main.temp-273)}<span><sup>o</sup>C</Span>`
-    low.innerHTML= `Low: ${Math.round(response.main.temp_min-273)}<span><sup>o</sup>C</Span>`
-    high.innerHTML= `High: ${Math.round(response.main.temp_max-273)}<span><sup>o</sup>C</Span>`
+    low.innerHTML= `Min : ${Math.round(response.main.temp_min-273)}<span><sup>o</sup>C</Span>`
+    high.innerHTML= `Max : ${Math.round(response.main.temp_max-273)}<span><sup>o</sup>C</Span>`
     let weaIcon=response.weather[0].main;
-    icons.innerHTML=weatherIcon(weaIcon)
+    icons.src=weatherIcon(weaIcon)
     let now=new Date();
     date.innerText=datebuilder(now);
 
@@ -54,32 +54,40 @@ function datebuilder(d){
 }
 function weatherIcon(icon){
     if(icon==='Clear'){
-        let fIcon=`<i class="fa-light fa-sun-cloud"></i>`;
-        return `${fIcon}`
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/partly-cloudy-day.png'
+        return icon;
     }
     if(icon==='Clouds'){
-        let fIcon=`<i class="fa-solid fa-clouds"></i>`;
-        return `${fIcon}`
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/clouds.png'
+        return icon;
     }
     if(icon==='Cloud'){
-        let fIcon=`<i class="fa-solid fa-cloud"></i>`;
-        return `${fIcon}`
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/cloud.png'
+        return icon;
     }
     if(icon==='Rain'){
-        let fIcon=`<i class="fa-sharp fa-solid fa-raindrops"></i>`;
-        return `${fIcon}`
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/intense-rain.png'
+        return icon;
     }
     if(icon==='Storm'){
-        let fIcon=`<i class="fa-light fa-poo-storm"></i>`;
-        return `${fIcon}`
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/storm.png'
+        return icon;
     }
     if(icon==='Sun'){
-        let fIcon=`<i class="fa-solid fa-sun"></i>`;
-        return `${fIcon}`
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/sun.png'
+        return icon;
     }
-    if(icon==='Sun'){
-        let fIcon=`<i class="fa-solid fa-sun"></i>`;
-        return `${fIcon}`
+    if(icon==='Snow'){
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/snow.png'
+        return icon;
+    }
+    if(icon==='Drizzle'){
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/light-rain.png'
+        return icon;
+    }
+    if(icon==='Atmosphere'){
+        let icon=document.querySelector('.weather-icon').src='https://img.icons8.com/fluency/2x/fog-night.png'
+        return icon;
     }
     
 }
