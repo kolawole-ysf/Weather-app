@@ -31,6 +31,11 @@ body{
     background-color: rgba(0, 0, 0, 0.5);
     margin-bottom: 40px;
     border-radius: 0 12px 0 12px;
+    text-align: center;
+}
+.city-input .error{
+    color: red;
+    margin-bottom: 10px;
 }
 .info img{
     width:100px;
@@ -80,6 +85,7 @@ hr{
     outline: none;
     border: 0;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 .icon i{
     font-size: 24px;

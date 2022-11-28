@@ -18,17 +18,26 @@ btn.addEventListener('click',getInputValue);
 
 function getInputValue(){
     getWeatherData(inputvalue.value)
+
+    inputvalue.value='';
 }
 
 function getWeatherData(city){
     fetch(`${api.baseurl}weather?q=${city}&APPID=${api.Key}`)
 	.then(response => response.json())
 	.then(displayWeather)
-	.catch(err => console.error(err));
+	.catch(err =>{
+        document.querySelector('.error').innerText='Oops! Invalid city name'
+        console.log(err)
+               });
+               setTimeout(clearErr,5000)
+            
+}
+function clearErr(){
+    document.querySelector('.error').remove();
 }
 
 function displayWeather(response){
-    console.log(response)
     cityName.innerHTML=`${response.name}, ${response.sys.country}`;
     humidity.innerText=`${response.weather[0].description}`;
     temp.innerHTML=`${Math.round(response.main.temp-273)}<span><sup>o</sup>C</Span>`
